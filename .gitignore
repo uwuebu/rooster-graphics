@@ -1,0 +1,14 @@
+# Exclude Visual Studio Code settings
+.vscode/
+
+# Exclude build directory
+build/
+
+# Exclude headers directory
+headers/
+
+# Exclude lib directory
+lib/
+
+# Exclude temp directory
+temp/
