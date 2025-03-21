@@ -23,6 +23,9 @@ then
     exit 1
 fi
 
+# Clear directories if they exist
+rm -rf "$HeadersDir" "$LibDir" "$TempDir" "$BuildDir"
+
 # Create directories if they don't exist
 mkdir -p "$HeadersDir" "$LibDir" "$TempDir" "$BuildDir"
 
