@@ -14,6 +14,13 @@ then
     exit 1
 fi
 
+# Check if curl is installed
+if ! command -v curl &> /dev/null
+then
+    echo "curl is not installed. Please install curl and try again."
+    exit 1
+fi
+
 # Create directories if they don't exist
 mkdir -p "$HeadersDir" "$LibDir" "$TempDir" "$BuildDir"
 
