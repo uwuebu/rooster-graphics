@@ -37,7 +37,7 @@ DownloadExtract() {
     curl -L -o "$zipPath" "$url"
     unzip -o "$zipPath" -d "$TempDir"
     extractedDir=$(find "$TempDir" -mindepth 1 -maxdepth 1 -type d)
-    cp -r "$extractedDir"/* "$destination"
+    rsync -a "$extractedDir/" "$destination"
     rm -rf "$extractedDir"
     rm -f "$zipPath"
 }
@@ -64,8 +64,8 @@ cmake --build "$GLFWBuildDir" --config Release
 popd
 
 # Copy the compiled library and headers
-cp "$GLFWBuildDir/src/Release/libglfw3.a" "$LibDir/glfw3.a"
-cp -r "$GLFWSourceDir/include/GLFW" "$HeadersDir/GLFW"
+rsync -a "$GLFWBuildDir/src/Release/libglfw3.a" "$LibDir/glfw3.a"
+rsync -a "$GLFWSourceDir/include/GLFW/" "$HeadersDir/GLFW"
 
 # Install Assimp
 echo "Installing Assimp..."
