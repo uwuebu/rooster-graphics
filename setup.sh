@@ -44,7 +44,7 @@ DownloadExtract() {
 # Install GLM
 echo "Installing GLM..."
 DownloadExtract "https://github.com/g-truc/glm/archive/refs/tags/1.0.0.zip" "$TempDir/glm"
-mv "$TempDir/glm/glm" "$HeadersDir/glm"
+mv "$TempDir/glm/glm"/* "$HeadersDir/glm"
 
 # Install GLFW and build it as a static library
 echo "Installing GLFW..."
