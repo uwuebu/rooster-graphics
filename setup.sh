@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Define installation directories
 RootDir="$(pwd)"
 HeadersDir="$RootDir/headers"
