@@ -43,7 +43,8 @@ DownloadExtract() {
 
 # Install GLM
 echo "Installing GLM..."
-DownloadExtract "https://github.com/g-truc/glm/archive/refs/tags/1.0.0.zip" "$HeadersDir/glm"
+DownloadExtract "https://github.com/g-truc/glm/archive/refs/tags/1.0.0.zip" "$TempDir/glm"
+mv "$TempDir/glm/glm" "$HeadersDir/glm"
 
 # Install GLFW and build it as a static library
 echo "Installing GLFW..."
@@ -68,22 +69,27 @@ mv "$GLFWSourceDir/include/GLFW" "$HeadersDir/GLFW"
 
 # Install Assimp
 echo "Installing Assimp..."
-DownloadExtract "https://github.com/assimp/assimp/archive/refs/tags/v5.2.5.zip" "$HeadersDir/assimp"
+DownloadExtract "https://github.com/assimp/assimp/archive/refs/tags/v5.2.5.zip" "$TempDir/assimp"
+mv "$TempDir/assimp/include/assimp" "$HeadersDir/assimp"
 
 # Install ImGui with docking
 echo "Installing ImGui..."
-DownloadExtract "https://github.com/ocornut/imgui/archive/refs/heads/docking.zip" "$HeadersDir/imgui"
+DownloadExtract "https://github.com/ocornut/imgui/archive/refs/heads/docking.zip" "$TempDir/imgui"
+mv "$TempDir/imgui" "$HeadersDir/imgui"
 
 # Install glad
 echo "Installing glad..."
-DownloadExtract "https://github.com/Dav1dde/glad/archive/refs/tags/v0.1.34.zip" "$HeadersDir/glad"
+DownloadExtract "https://github.com/Dav1dde/glad/archive/refs/tags/v0.1.34.zip" "$TempDir/glad"
+mv "$TempDir/glad/include/glad" "$HeadersDir/glad"
 
 # Install Khronos headers
 echo "Installing Khronos headers..."
-DownloadExtract "https://github.com/KhronosGroup/OpenGL-Registry/archive/refs/heads/main.zip" "$HeadersDir/KHR"
+DownloadExtract "https://github.com/KhronosGroup/OpenGL-Registry/archive/refs/heads/main.zip" "$TempDir/KHR"
+mv "$TempDir/KHR/api/GL" "$HeadersDir/KHR"
 
 # Install stb_image
 echo "Installing stb_image..."
-DownloadExtract "https://github.com/nothings/stb/archive/refs/heads/master.zip" "$HeadersDir/stb_image.h"
+DownloadExtract "https://github.com/nothings/stb/archive/refs/heads/master.zip" "$TempDir/stb_image"
+mv "$TempDir/stb_image/stb_image.h" "$HeadersDir/stb_image.h"
 
 echo "Installation complete! Headers are in $HeadersDir, and GLFW static library is in $LibDir."
