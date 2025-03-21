@@ -71,4 +71,9 @@ Write-Host "Installing Khronos headers..."
 Download-Extract "https://github.com/KhronosGroup/OpenGL-Registry/archive/refs/heads/main.zip" $TempDir
 Move-Item "$TempDir\OpenGL-Registry-main\api\GL" "$HeadersDir\KHR" -Force
 
+# Install stb_image
+Write-Host "Installing stb_image..."
+Download-Extract "https://github.com/nothings/stb/archive/refs/heads/master.zip" $TempDir
+Move-Item "$TempDir\stb-master\stb_image.h" "$HeadersDir\stb_image.h" -Force
+
 Write-Host "Installation complete! Headers are in $HeadersDir, and GLFW static library is in $LibDir."
