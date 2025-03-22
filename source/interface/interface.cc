@@ -4,6 +4,7 @@
 #include <cstdint>
 
 ImVec2 render_window_size;
+ImVec2 preview_window_size;
 
 void Interface::RenderImGui() {
   // Window header with File, Edit, View
@@ -29,12 +30,42 @@ void Interface::RenderImGui() {
 
   // Asset Browser
   ImGui::Begin("Asset Browser", nullptr, ImGuiWindowFlags_NoCollapse);
-  // Empty for now
+  if (ImGui::BeginTabBar("AssetTabs")) {
+    if (ImGui::BeginTabItem("Materials")) {
+      // Content for Materials tab
+      ImGui::Text("Materials will be listed here.");
+      ImGui::EndTabItem();
+    }
+    if (ImGui::BeginTabItem("Textures")) {
+      // Content for Textures tab
+      ImGui::Text("Texture assets will be listed here.");
+      ImGui::EndTabItem();
+    }
+    if (ImGui::BeginTabItem("Models")) {
+      // Content for Models tab
+      ImGui::Text("Model assets will be listed here.");
+      ImGui::EndTabItem();
+    }
+    if (ImGui::BeginTabItem("Scripts")) {
+      // Content for Scripts tab
+      ImGui::Text("Script assets will be listed here.");
+      ImGui::EndTabItem();
+    }
+    if (ImGui::BeginTabItem("Shaders")) {
+      // Content for Shaders tab
+      ImGui::Text("Shader assets will be listed here.");
+      ImGui::EndTabItem();
+    }
+    ImGui::EndTabBar();
+  }
   ImGui::End();
 
   // Preview Window
   ImGui::Begin("Preview", nullptr, ImGuiWindowFlags_NoCollapse);
-  // Empty for now
+  preview_window_size = ImGui::GetContentRegionAvail();
+  if (preview_framebuffer_manager) {
+    ImGui::Image((ImTextureID)(intptr_t)preview_framebuffer_manager->GetTexture(), preview_window_size);
+  }
   ImGui::End();
 
   // Scene Hierarchy
@@ -78,4 +109,12 @@ void Interface::RenderImGui() {
 
 ImVec2 Interface::GetRenderWindowSize() {
   return render_window_size;
+}
+
+ImVec2 Interface::GetPreviewWindowSize() {
+  return preview_window_size;
+}
+
+void Interface::SetPreviewFramebufferManager(FramebufferManager* manager) {
+  preview_framebuffer_manager = manager;
 }

@@ -2,11 +2,12 @@
 #define RENDERER_H
 
 #include "framebuffer_manager.h"
+#include "../scene/scene.h"
 
 class Renderer {
  public:
   Renderer(FramebufferManager* framebuffer_manager);
-  void RenderScene();
+  void RenderScene(const Scene& scene);
 
  private:
   FramebufferManager* framebuffer_manager_;

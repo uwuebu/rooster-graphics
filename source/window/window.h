@@ -69,14 +69,16 @@ public:
     float aspectRatio = (float)screenWidth / (float)screenHeight;
   }
 
-  void SetInputHandler(InputHandler* input_handler)
-   { input_handler_ = input_handler; }
+  void SetInputHandler(InputHandler* input_handler) { input_handler_ = input_handler; }
 
   GLFWwindow* GetWindowPTR() { return window_; }
   int GetScreenWidth() { return screenWidth; }
   int GetScreenHeight() { return screenHeight; }
-
-
+  ImVec2 GetWindowSize() const {
+    int width, height;
+    glfwGetWindowSize(window_, &width, &height);
+    return ImVec2(static_cast<float>(width), static_cast<float>(height));
+  }
 
 private:
   // glfw: whenever the window size changed (by OS or user resize)
