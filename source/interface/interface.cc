@@ -33,7 +33,12 @@ void Interface::RenderImGui() {
   ImGui::End();
 
   // Preview Window
-  ImGui::Begin("Preview Window", nullptr, ImGuiWindowFlags_NoCollapse);
+  ImGui::Begin("Preview", nullptr, ImGuiWindowFlags_NoCollapse);
+  // Empty for now
+  ImGui::End();
+
+  // Scene Hierarchy
+  ImGui::Begin("Scene", nullptr, ImGuiWindowFlags_NoCollapse);
   // Empty for now
   ImGui::End();
 
@@ -42,13 +47,28 @@ void Interface::RenderImGui() {
   // Empty for now
   ImGui::End();
 
+  // Levels
+  ImGui::Begin("Levels", nullptr, ImGuiWindowFlags_NoCollapse);
+  // Empty for now
+  ImGui::End();
+
   // File Browser
   ImGui::Begin("File Browser", nullptr, ImGuiWindowFlags_NoCollapse);
   // Empty for now
   ImGui::End();
 
+  // Debug
+  ImGui::Begin("Debug", nullptr, ImGuiWindowFlags_NoCollapse);
+  // Empty for now
+  ImGui::End();
+
+  // Render Controls
+  ImGui::Begin("Render Controls", nullptr, ImGuiWindowFlags_NoCollapse);
+  // Empty for now
+  ImGui::End();
+
   // Render Window
-  ImGui::Begin("Render Window", nullptr, ImGuiWindowFlags_NoCollapse);
+  ImGui::Begin("Render", nullptr, ImGuiWindowFlags_NoCollapse);
   render_window_size = ImGui::GetContentRegionAvail();
   if (framebuffer_manager) {
     ImGui::Image((ImTextureID)(intptr_t)framebuffer_manager->GetTexture(), render_window_size);
