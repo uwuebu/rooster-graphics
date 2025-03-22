@@ -13,7 +13,7 @@ FramebufferManager* framebuffer_manager;
 #include <string.h>
 #include <vector>
 
-void main() {
+int main() {
   Window window(4, 5);
   InputHandler input_handler;
   window.SetInputHandler(&input_handler);
@@ -47,5 +47,7 @@ void main() {
     glfwSwapBuffers(window.GetWindowPTR());
     glfwPollEvents();
   }
+
+  return 0;
 }
 

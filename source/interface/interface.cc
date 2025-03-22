@@ -1,6 +1,7 @@
 #include "interface.h"
 #include "../rendering/framebuffer_manager.h"
 #include "imgui.h"
+#include <cstdint>
 
 ImVec2 render_window_size;
 
