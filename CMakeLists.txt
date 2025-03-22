@@ -33,7 +33,11 @@ list(REMOVE_DUPLICATES SOURCES)
 add_executable(PersonalGraphicsEngineReworked ${SOURCES} ${IMGUI_SOURCES})
 
 # Link libraries
-target_link_libraries(PersonalGraphicsEngineReworked ${LIB_DIR}/glfw3.lib)
+if (WIN32)
+    target_link_libraries(PersonalGraphicsEngineReworked ${LIB_DIR}/glfw3.lib opengl32.lib)
+elseif (UNIX)
+    target_link_libraries(PersonalGraphicsEngineReworked ${LIB_DIR}/glfw3.lib GL)
+endif()
 
 # Add glad
 add_library(glad ${HEADERS_DIR}/glad/glad.c)
